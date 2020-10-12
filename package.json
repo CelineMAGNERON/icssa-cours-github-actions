@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "mocha --require @babel/register"
+    "test": "mocha --require @babel/register",
+    "postinstall": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,18 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.7",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "pinst": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "husky": "^4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "...": "..."
+    }
+  }
+  
 }
